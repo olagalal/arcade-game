@@ -21,8 +21,8 @@ Enemy.prototype.update = function(dt) {
     
     //reset positions for enemy
     if (this.x > 500) {
-        this.x = -100;
-        this.speed = 100 + Math.floor(Math.random() * 200);
+        this.x = -50;
+        this.speed = 200 + Math.floor(Math.random() * 200);
     }
 
     // Check for collision between player and enemies 
@@ -57,12 +57,12 @@ var Player = function(x, y, speed) {
 
 Player.prototype.update = function() {
     // player cannot move outside canvas
-    if (this.y > 350) {
-        this.y = 350;
+    if (this.y > 400) {
+        this.y = 400;
     }
 
-    if (this.x > 350) {
-        this.x = 350;
+    if (this.x > 400) {
+        this.x = 400;
     }
 
     if (this.x < 0) {
@@ -113,13 +113,13 @@ Player.prototype.handleInput = function(key) {
 // Place the player object in a variable called player
 
 var allEnemies = [];
-var player = new Player(200, 380, 50);
+var player = new Player(200, 400, 50);
 
-var yAxis = [60, 140, 220];
+var yAxis = [60, 140, 225];
 var enemies;
 
 yAxis.forEach( function(yAxis){
-    enemies = new Enemy( 0, yAxis , Math.floor(Math.random()* 200));
+    enemies = new Enemy( 0, yAxis , Math.floor(Math.random()* 300));
     allEnemies.push(enemies);
     
 });
