@@ -1,3 +1,9 @@
 body {
     text-align: center;
 }
+
+h1{
+    text-transform: uppercase;
+    color: darkgrey;
+    margin-bottom: -40px;
+}

@@ -33,6 +33,7 @@ Enemy.prototype.update = function(dt) {
         30 + player.y > this.y) {
         window.alert("Oops! Try Again :(");
         player.reset();
+        player.initScore();
     }    
 };
 
@@ -75,6 +76,7 @@ Player.prototype.update = function() {
         this.y = 380;
         window.alert("Geart! you Won ☻");
         player.reset();
+        player.updateScore();
     }
 };
 
@@ -106,6 +108,20 @@ Player.prototype.handleInput = function(key) {
             this.x += this.speed + 40;
             break;
     }
+};
+
+var score = 0;
+var scoreLabel = document.getElementById("score");
+//Score
+Player.prototype.initScore = function(){
+    score= 0;
+    scoreLabel.innerHTML = score;
+    
+};
+
+Player.prototype.updateScore = function(){
+    score++;
+    scoreLabel.innerHTML = score;
 };
 
 // Now instantiate your objects.
