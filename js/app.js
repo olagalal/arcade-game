@@ -4,7 +4,7 @@ var Enemy = function(x, y, speed) {
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.speed = speed;
+    this.speed = speed + 200 ;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -25,7 +25,8 @@ Enemy.prototype.update = function(dt) {
         this.speed = 100 + Math.floor(Math.random() * 200);
     }
 
-    // Check for collision between player and enemies
+    // Check for collision between player and enemies 
+    //(LOSE)
     if (player.x < this.x + 60 &&
         player.x + 37 > this.x &&
         player.y < this.y + 25 &&
@@ -37,7 +38,11 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(
+        Resources.get(this.sprite),
+        this.x,
+        this.y
+    );
 };
 
 // Now write your own player class
@@ -52,12 +57,12 @@ var Player = function(x, y, speed) {
 
 Player.prototype.update = function() {
     // player cannot move outside canvas
-    if (this.y > 380) {
-        this.y = 380;
+    if (this.y > 350) {
+        this.y = 350;
     }
 
-    if (this.x > 400) {
-        this.x = 400;
+    if (this.x > 350) {
+        this.x = 350;
     }
 
     if (this.x < 0) {
@@ -74,12 +79,33 @@ Player.prototype.update = function() {
 };
 
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(
+        Resources.get(this.sprite),
+        this.x, 
+        this.y
+    );
 };
 
 Player.prototype.reset = function(){
     this.x = 200;
     this.y = 380;
+};
+
+Player.prototype.handleInput = function(key) {
+    switch (key) {
+        case 'up':
+            this.y -= this.speed + 40;
+            break;
+        case 'down':
+            this.y += this.speed + 40;
+            break;
+        case 'left':
+            this.x -= this.speed + 40;
+            break;
+        case 'right':
+            this.x += this.speed + 40;
+            break;
+    }
 };
 
 // Now instantiate your objects.
