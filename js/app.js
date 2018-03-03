@@ -1,3 +1,4 @@
+'use strict';
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -75,8 +76,8 @@ Player.prototype.update = function() {
         this.x = 200;
         this.y = 380;
         window.alert("Geart! you Won ☻");
-        player.reset();
-        player.updateScore();
+        this.reset();
+        this.updateScore();
     }
 };
 
@@ -96,16 +97,16 @@ Player.prototype.reset = function(){
 Player.prototype.handleInput = function(key) {
     switch (key) {
         case 'up':
-            this.y -= this.speed + 40;
+            this.y -= this.speed + 83;
             break;
         case 'down':
-            this.y += this.speed + 40;
+            this.y += this.speed + 83;
             break;
         case 'left':
-            this.x -= this.speed + 40;
+            this.x -= this.speed + 101;
             break;
         case 'right':
-            this.x += this.speed + 40;
+            this.x += this.speed + 101;
             break;
     }
 };
