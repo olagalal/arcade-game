@@ -13,3 +13,7 @@ Instructions:
 - Once a the player collides with an enemy, the game is reset and the player moves back to the start square.
 - Once the player reaches the water the game is won.
 - The score increase each time the player reaches the water, and it reset to 0 when collision occurs.
+===============================
+How to start playing:
+===============================
+click on index.html or visit my GitHub page (https://github.com/olaglal/arcade-game) and enjoy the app
